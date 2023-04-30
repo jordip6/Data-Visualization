@@ -10,11 +10,11 @@ df_poblacio<- df_poblacio %>% mutate(grupEdat=case_when(
   df_poblacio$edat>=40 &  df_poblacio$edat<65 ~ '40-64',
   df_poblacio$edat>=65 ~'65+'))
 
-poblacio_agrupada <- df_poblacio %>% group_by(any,grupEdat) %>% summarize(total_poblacio=sum(poblaci�.oficial))
+poblacio_agrupada <- df_poblacio %>% group_by(any,grupEdat) %>% summarize(total_poblacio=sum(població.oficial))
 
-poblacio_agrupada_provincia_poblacio <- df_poblacio %>% filter(any==2021) %>% group_by(prov�ncia, comarca)%>%summarize(total_poblacio=sum(poblaci�.oficial))
+poblacio_agrupada_provincia_poblacio <- df_poblacio %>% filter(any==2021) %>% group_by(província, comarca)%>%summarize(total_poblacio=sum(població.oficial))
 
-write.csv(poblacio_agrupada, 'dades_gràfic_barres.csv')
+write.csv(poblacio_agrupada, 'dades_grÃ fic_barres.csv')
 
 write.csv(poblacio_agrupada_provincia_poblacio, 'dades_barres2.csv')
 
@@ -22,7 +22,7 @@ write.csv(poblacio_agrupada_provincia_poblacio, 'dades_barres2.csv')
 
 poblacio_agrupada2 <- df_poblacio  %>%  group_by(any,província, gènere) %>% summarize(mitjana_edat=sum(poblacio*edat)/sum(poblacio))
 poblacio_agrupada2 <- poblacio_agrupada2 %>% filter(província!='SENSE ESPECIFICAR')
-write.csv(poblacio_agrupada2, 'dades_gràfic_small_multiple.csv')
+write.csv(poblacio_agrupada2, 'dades_grÃ fic_small_multiple.csv')
 
 #Chart3
 
